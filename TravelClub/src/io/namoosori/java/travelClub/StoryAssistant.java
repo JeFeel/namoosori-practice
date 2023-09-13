@@ -1,14 +1,12 @@
 package io.namoosori.java.travelClub;
 
 
-import io.namoosori.java.travelClub.entity.TravelClub;
 import io.namoosori.java.travelClub.ui.menu.ClubMenu;
-import io.namoosori.java.travelClub.util.DateUtil;
 
 
 public class StoryAssistant {
 
-    private void startStroy(){
+    private void startStory(){
         ClubMenu clubMenu = new ClubMenu();
         clubMenu.show();
     }
@@ -19,7 +17,7 @@ public class StoryAssistant {
 //
 //        System.out.println(TravelClub.getSample());
         StoryAssistant assistant = new StoryAssistant();
-        assistant.startStroy();
+        assistant.startStory();
 
 
     }
