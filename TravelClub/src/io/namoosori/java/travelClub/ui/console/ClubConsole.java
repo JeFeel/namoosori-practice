@@ -55,10 +55,42 @@ public class ClubConsole {
     }
 
     public void findById() {
+        TravelClub foundClub;
+        while (true) {
+            String clubId = util.getValueOf("Club Id to find(0. return to Club Menu)");
+            if (clubId.equals("0")) {
+                break;
+            }
 
+            foundClub = service.findById(clubId);
+
+            if (foundClub != null) {
+                System.out.println(foundClub);
+            } else {
+                System.out.println("Cannot find club, ID :" + clubId);
+            }
+        }
     }
 
     public void findName() {
+        TravelClub[] foundClubs;
+        while (true) {
+            String clubName = util.getValueOf("Club Name to find(0. return to Club Menu)");
+
+            if (clubName.equals("0")) {
+                break;
+            }
+
+            foundClubs = service.findByName(clubName);
+
+            if (foundClubs != null && foundClubs.length != 0) {
+                for (TravelClub club : foundClubs) {
+                    System.out.println(club);
+                }
+            } else {
+                System.out.println("Cannot find club, Name:" + clubName);
+            }
+        }
     }
 
     public void modify() {

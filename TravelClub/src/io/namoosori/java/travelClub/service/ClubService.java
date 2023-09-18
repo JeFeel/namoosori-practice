@@ -12,7 +12,7 @@ public interface ClubService {
 
     TravelClub[] findByName(String clubName);
 
-    TravelClub[] findById(String clubId);
+    TravelClub findById(String clubId);
 
     void modify(TravelClub modifyClub);
 

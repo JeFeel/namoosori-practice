@@ -13,7 +13,7 @@ public class TravelClub {
     //    코드 수정 용이하게 하기 위해 private static final 필드를 만든다
     private static final int MINIMUM_NAME_LENGTH = 3;  //상수화
     private static final int MINIMUM_INTRO_LENGTH = 10;
-    private String id;
+    private final String id;
     private String clubName;
     private String intro;
     private String foundationDay; //클럽 개설일

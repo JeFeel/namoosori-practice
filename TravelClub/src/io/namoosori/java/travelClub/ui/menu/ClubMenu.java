@@ -21,7 +21,7 @@ public class ClubMenu {
         while (true) {
             displayMenu();
             inputNumber = selectMenu();
-            System.out.println(inputNumber);
+//            System.out.println(inputNumber);
             switch (inputNumber) {
                 case 1 -> console.register();
                 case 2 -> console.findAll();
