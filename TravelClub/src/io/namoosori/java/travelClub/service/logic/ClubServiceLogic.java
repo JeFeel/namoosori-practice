@@ -58,11 +58,32 @@ public class ClubServiceLogic implements ClubService {
 
     @Override
     public void modify(TravelClub modifyClub) {
+        int foundIndex = 0;
+        for (int i = 0; i < clubs.length; i++) {
+            if (clubs[i].getId().equals(modifyClub.getId())) {
+                foundIndex = i;
+                break;
+            }
+        }
 
+        this.clubs[foundIndex] = modifyClub;
     }
 
     @Override
     public void remove(String clubId) {
+        int foundIndex = 0;
+        for (int i = 0; i < clubs.length; i++) {
+            if (clubs[i].getId().equals(clubId)) {
+                foundIndex = i;
+                break;
+            }
+        }
 
+        // club 하나 지움으로써 index를 당기는 작업
+        for (int i = foundIndex; i < this.index + 1; i++) {
+            clubs[i] = clubs[i + 1];
+        }
+
+        this.index--;
     }
 }
