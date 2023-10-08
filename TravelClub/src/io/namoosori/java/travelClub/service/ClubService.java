@@ -3,14 +3,16 @@ package io.namoosori.java.travelClub.service;
 
 import io.namoosori.java.travelClub.entity.TravelClub;
 
+import java.util.List;
+
 
 public interface ClubService {
 
     void register(TravelClub travelClub);
 
-    TravelClub[] findAll(); //전체 travelclub 반환
+    List<TravelClub> findAll(); //전체 travelclub 반환
 
-    TravelClub[] findByName(String clubName);
+    List<TravelClub> findByName(String clubName);
 
     TravelClub findById(String clubId);
 

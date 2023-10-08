@@ -7,6 +7,8 @@ import io.namoosori.java.travelClub.service.ServiceLogicLifeCycler;
 import io.namoosori.java.travelClub.service.logic.ClubServiceLogic;
 import io.namoosori.java.travelClub.util.ConsoleUtil;
 
+import java.util.List;
+
 
 public class ClubConsole {
 
@@ -44,8 +46,8 @@ public class ClubConsole {
 
     public void findAll() {
 //        System.out.println("Find All");
-        TravelClub[] foundClubs = service.findAll();
-        if (foundClubs.length == 0) {
+        List<TravelClub> foundClubs = service.findAll();
+        if (foundClubs.isEmpty()) { // foundClubs.length에서 변경
             System.out.println("Club is Empty");
             return;
         }
@@ -75,7 +77,7 @@ public class ClubConsole {
     }
 
     public void findName() {
-        TravelClub[] foundClubs;
+        List<TravelClub> foundClubs;
         while (true) {
             String clubName = util.getValueOf("Club Name to find(0. return to Club Menu)");
 
@@ -85,7 +87,7 @@ public class ClubConsole {
 
             foundClubs = service.findByName(clubName);
 
-            if (foundClubs != null && foundClubs.length != 0) {
+            if (foundClubs != null && !foundClubs.isEmpty()) { // foundClubs.length !=0
                 for (TravelClub club : foundClubs) {
                     System.out.println(club);
                 }
