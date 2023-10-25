@@ -5,6 +5,7 @@ import io.namoosori.java.travelClub.entity.TravelClub;
 import io.namoosori.java.travelClub.store.ClubStore;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class ClubMapStore implements ClubStore {
@@ -25,26 +26,34 @@ public class ClubMapStore implements ClubStore {
         return this.clubMap.get(clubId);  //map으로부터 id를 찾아 반환
     }
 
-    @Override
-    public List<TravelClub> retrieveAllByName(String clubName) {
-        //List로 반환
-        List<TravelClub> foundClubs = new ArrayList<>();
-
-        for (TravelClub club : this.clubMap.values()) {
-            if (club.getClubName().equals(clubName)) {
-                foundClubs.add(club);
-            }
-        }
-
-//        Iterator 방식
-//        Iterator<TravelClub> iterator = this.clubMap.values().iterator();
-//        while(iterator.hasNext()){
-//            TravelClub club = iterator.next();
-//            if(club.getClubName().equals(clubName)){
+//    @Override
+//    public List<TravelClub> retrieveAllByName(String clubName) {
+//        //List로 반환
+//        List<TravelClub> foundClubs = new ArrayList<>();
+//
+//        for (TravelClub club : this.clubMap.values()) {
+//            if (club.getClubName().equals(clubName)) {
 //                foundClubs.add(club);
 //            }
 //        }
-        return foundClubs;
+//
+////        Iterator 방식
+////        Iterator<TravelClub> iterator = this.clubMap.values().iterator();
+////        while(iterator.hasNext()){
+////            TravelClub club = iterator.next();
+////            if(club.getClubName().equals(clubName)){
+////                foundClubs.add(club);
+////            }
+////        }
+//        return foundClubs;
+//    }
+
+    // Stream API를 활용한 메서드 수정
+    @Override
+    public List<TravelClub> retrieveAllByName(String clubName) {
+        return clubMap.values().stream()
+                .filter(club -> club.getClubName().equals(clubName))
+                .collect(Collectors.toList());
     }
 
     @Override
